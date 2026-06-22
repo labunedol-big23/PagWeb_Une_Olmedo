@@ -1,0 +1,301 @@
+.olmedo-section {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+  color: #0A2A43;
+  overflow: hidden;
+}
+
+/* TICKER */
+.olmedo-ticker {
+  background: #0A2A43;
+  color: #D4A017;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+#olmedo-ticker-text {
+  display: inline-block;
+  animation: scrollText 25s linear infinite;
+}
+
+@keyframes scrollText {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* HERO MEJORADO */
+.olmedo-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #123F6B, #1E6BA2);
+  color: white;
+  gap: 40px;
+}
+
+.olmedo-hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.olmedo-hero-img img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* GRID */
+.olmedo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 25px;
+  padding: 60px 10%;
+}
+
+.card {
+  background: white;
+  border-left: 5px solid #D4A017;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* HISTORIA PRO */
+.olmedo-history {
+  padding: 60px 10%;
+  background: white;
+}
+
+.olmedo-history h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.olmedo-history p {
+  max-width: 800px;
+  margin: 15px auto;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.olmedo-history ul {
+  max-width: 600px;
+  margin: 20px auto;
+  padding-left: 20px;
+}
+
+.olmedo-history li {
+  margin-bottom: 10px;
+}
+
+/* GALERÍA BONITA */
+.olmedo-gallery {
+  padding: 60px 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  background: #f0f2f5;
+}
+
+#olmedo-gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: all .4s ease;
+  cursor: pointer;
+}
+
+#olmedo-gallery img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ANIMACIONES */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .olmedo-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .olmedo-hero-img {
+    order: -1;
+  }
+}
+
+
+/****************************************************************************/
+
+/* =========================
+   TABLETS (<= 900px)
+========================= */
+@media (max-width: 900px) {
+
+  .olmedo-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 5%;
+  }
+
+  .olmedo-hero-text h1 {
+    font-size: 2.3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .olmedo-hero-img {
+    order: -1;
+  }
+
+  .olmedo-grid {
+    padding: 40px 5%;
+  }
+
+  .olmedo-history {
+    padding: 40px 5%;
+  }
+
+  .olmedo-gallery {
+    padding: 40px 5%;
+  }
+}
+
+
+/* =========================
+   MÓVILES (<= 600px)
+========================= */
+@media (max-width: 600px) {
+
+  /* HERO */
+  .olmedo-hero {
+    padding: 50px 20px;
+    gap: 20px;
+  }
+
+  .olmedo-hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .olmedo-hero-img img {
+    border-radius: 10px;
+  }
+
+  /* CARDS */
+  .card {
+    padding: 20px;
+  }
+
+  /* HISTORIA */
+  .olmedo-history h2 {
+    font-size: 1.6rem;
+  }
+
+  .olmedo-history p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .olmedo-history ul {
+    padding-left: 15px;
+  }
+
+  /* GALERÍA */
+  .olmedo-gallery {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  #olmedo-gallery img {
+    height: 180px;
+  }
+
+  /* TICKER */
+  .olmedo-ticker {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+}
+
+
+/* =========================
+   MÓVILES PEQUEÑOS (<= 400px)
+========================= */
+@media (max-width: 400px) {
+
+  .olmedo-hero-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .olmedo-history p {
+    font-size: 0.9rem;
+  }
+
+  #olmedo-gallery img {
+    height: 150px;
+  }
+
+}
+
+/**************************************************************************/
+.olmedo-source {
+  text-align: center;
+  padding: 30px 20px;
+  background: #0A2A43;
+  color: #fff;
+  margin-top: 40px;
+}
+
+.olmedo-source p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.olmedo-source a {
+  color: #D4A017;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.olmedo-source a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "mi-proyecto",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "apify-client": "^2.23.2",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "resend": "^6.12.3"
+  }
+}

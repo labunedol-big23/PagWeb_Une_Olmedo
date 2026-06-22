@@ -1,0 +1,29 @@
+
+// Primeras Opción
+#1E6BA2
+#BE8B09
+#FFFFFF
+#68757B
+
+// Segunda Opción 
+| Uso            | Color | Código    |
+| -------------- | ----- | --------- |
+| Azul principal | 🔵    | #0D47A1 |
+| Azul medio     | 🔵    | #1565C0 |
+| Azul claro     | 🔵    | #42A5F5 |
+| Dorado         | 🟡    | #BE8B09 |
+| Gris           | ⚙     | #68757B |
+| Blanco         | ⚪    | #FFFFFF |
+
+
+//Tercera Opción más elegante (Este me parece mejor)
+
+| Uso            | Color     | Código |
+| -------------- | --------- | ------ |
+| Azul oscuro    | #0A2A43 |        |
+| Azul principal | #123F6B |        |
+| Azul claro     | #1E6BA2 |        |
+| Dorado         | #D4A017 |        |
+| Gris claro     | #E5E5E5 |        |
+| Blanco         | #FFFFFF |        |
+| Blanco en sec  | #f4f6f9 |        |

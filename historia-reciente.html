@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia</title>
+    <link rel="stylesheet" href="styles/estilo_index.css">
+    <link rel="stylesheet" href="styles/estilo_historiaR.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="encabezado">
+        <section class="encabezado01">
+            <div class="logo">
+
+                <div class="logo-izq">
+                    <img id="logoSecundario" src="img/index/logoUnedol02.webp">
+                </div>
+
+                <div class="logo-der">
+                     <a href="https://www.facebook.com/share/1EBxdZD4iz/" target="_blank">
+                        <img id="ico_redesSociales" src="img/index/iconos/facebook-svgrepo-com.svg">
+                    </a>
+                    <a href="https://www.instagram.com/unidadeducativaolmedo?igsh=cjR2NHZiMzU4dDlo" target="_blank">
+                        <img id="ico_redesSociales" src="img/index/iconos/instagram-svgrepo-com.svg">
+                    </a>
+                    <a href="https://www.tiktok.com/@unidad.educativaolmedo?_r=1&_t=ZS-94qEpph66wG" target="_blank">
+                        <img id="ico_redesSociales" src="img/index/iconos/tik-tok-svgrepo-com.svg">
+                    </a>
+                    <img id="logoPrincipal" src="img/index/logoUnedol.webp">
+                </div>
+            </div>
+        </section>
+        <section class="encabezado02">
+            <!-- Barra de navegación -->
+            <div class="navegacion">
+                <nav>
+                    <ul class="menu-navegacion">
+                        <li class="lis"><a href="index.html">Inicio</a></li>
+                        <li class="lis"><a href="galeria.html">Galería</a></li>
+                        <li class="lis">
+                            <a href="#">Historia</a>
+                            <ul class="submenu">
+                                <li><a href="historia-reciente.html">Historia reciente</a></li>
+                                <li><a href="Historia.html">Contexto histórico</a></li>
+                            </ul>
+                        </li>
+                        <li class="lis"><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Contenido adicional o espacio para otros elementos como un GIF -->
+            <!-- Contenedor del video -->
+            <div class="cont_gif">
+                <img 
+                    id="gif_unedol"
+                    src="img/index/GifUnedol.gif"
+                    alt="UNEDOL"
+                >
+            </div>
+        </section>
+    </header>
+
+    <section class="team-section">
+         <main>
+            <section class="wrapper">
+                <div><h1 style="color: black;">Equipo Unedol</h1></div>
+                <a href="#raymond" id="raymond">
+                    <hgroup>
+                        <h2>Msc. Tito León</h2>
+                        <p>Rector Administrativo</p>
+                    </hgroup>
+                    <img src="img/Historia/TitoL.webp"  width="120" height="100" alt="Raymond">
+                </a>
+                <a href="#">
+                    <hgroup>
+                        <h2>Dr. Ruben León</h2>
+                        <p>Rector Pedagógico</p>
+                    </hgroup>
+                    <img src="img/Historia/RubenL.webp" width="120" height="100" alt="Claire">
+                </a>
+                <a href="#">
+                    <hgroup>
+                        <h2>Msc. Rosalva Bolaños</h2>
+                        <p>Vicerrectora - Vespertina</p>
+                    </hgroup>
+                    <img src="img/Historia/RosalavaB.webp"  width="120" height="100" alt="Elizabeth">
+                </a>
+                <a href="#">
+                    <hgroup>
+                        <h2>Msc. Yuber Pacheco</h2>
+                        <p>Vicerrector - Matutina</p>
+                    </hgroup>
+                    <img src="img/Historia/YuberP.webp" width="120" height="100" alt="Mary Jane">
+                </a>
+                <a href="#">
+                    <hgroup>
+                        <h2>Msc. Lina Pin</h2>
+                        <p>Inspectora General</p>
+                    </hgroup>
+                    <img src="img/Historia/LinaPin.webp"  width="120" height="100" alt="Simon">
+                </a>
+                <a href="#">
+                    <hgroup>
+                        <h2>Lcda. Wendy Veloz</h2>
+                        <p>Subinspectora</p>
+                    </hgroup>
+                    <img src="img/Historia/WendyV.webp"  width="120" height="100" alt="Craig">
+                </a>
+                <a href="#">
+                    <hgroup>
+                        <h2>Lcda. Carolina Minda</h2>
+                        <p>Coordinadora Escuela</p>
+                    </hgroup>
+                    <img src="img/Historia/CarolinaM.webp"  width="120" height="100" alt="Amanda">
+                </a>
+                
+                <a href="#">
+                    <hgroup>
+                        <h2>Lcda. Yanela Barzola</h2>
+                        <p>Coordinadora Escuela</p>
+                    </hgroup>
+                    <img src="img/Historia/YanelaB.webp" width="120" height="100" alt="Holly">
+                </a>
+            </section>
+        </main>
+    </section>
+
+
+    <!-- =========================================================
+     HISTORIA RECIENTE – UNIDAD EDUCATIVA OLMEDO
+     Requiere: olmedo_libro.css  +  olmedo_libro.js
+     ========================================================= -->
+
+    <section class="book-section" id="historia-olmedo">
+
+    <div class="scene" id="scene">
+
+        <!-- ══════════════════════════════════════
+            SPREAD 0 — Portada
+        ══════════════════════════════════════ -->
+        <div class="spread" data-page="0">
+
+        <div class="page-left">
+            <img src="img/HistoriaR/logo_construccion.webp" alt="Unidad Educativa Olmedo">
+            <div class="img-caption">Unidad Educativa Olmedo · Daule, Guayas</div>
+        </div>
+
+        <div class="page-right">
+            <div class="label-sup">Historia reciente</div>
+            <h1 class="page-title">Unidad<br>Educativa<br>Olmedo</h1>
+            <div class="page-subtitle">esfuerzo · legado · visión</div>
+            <div class="gold-rule"></div>
+            <div class="body-text">
+            <p>
+                <span class="drop-cap">H</span>ablar de la Unidad Educativa
+                Olmedo es hablar de esfuerzo convertido en legado, de sueños
+                que comenzaron con pasos pequeños y de personas que hicieron
+                de la educación una misión de vida.
+            </p>
+            <p>
+                En el corazón de Daule, provincia del Guayas, nació una
+                institución con una convicción profunda: educar no solo para
+                aprobar materias, sino para formar seres humanos capaces de
+                descubrir quiénes son y hasta dónde pueden llegar.
+            </p>
+            </div>
+            <span class="pnum">01</span>
+        </div>
+
+        </div><!-- /spread 0 -->
+
+        <!-- ══════════════════════════════════════
+            SPREAD 1 — El camino
+        ══════════════════════════════════════ -->
+        <div class="spread" data-page="1">
+
+        <div class="page-left">
+            <img src="img/HistoriaR/primer_logo.webp" alt="Aulas Olmedo">
+            <div class="img-caption">Formando generaciones · constancia y disciplina</div>
+        </div>
+
+        <div class="page-right">
+            <div class="badge">El camino</div>
+            <div class="body-text">
+            <p>
+                El camino no siempre fue fácil. Hubo días de incertidumbre,
+                sacrificios silenciosos y decisiones difíciles que exigieron
+                valentía.
+            </p>
+            <blockquote class="pull">
+                Hubo quienes entregaron años enteros de trabajo, paciencia
+                y amor por la educación para levantar cada aula y fortalecer
+                cada proyecto.
+            </blockquote>
+            <p>
+                Desde sus primeros años, la institución avanzó con constancia,
+                superando desafíos y sosteniéndose gracias al compromiso de
+                quienes entendieron que enseñar es una de las formas más
+                grandes de transformar una sociedad.
+            </p>
+            </div>
+            <span class="pnum">02</span>
+        </div>
+
+        </div><!-- /spread 1 -->
+
+        <!-- ══════════════════════════════════════
+            SPREAD 2 — Legado y memoria
+        ══════════════════════════════════════ -->
+        <div class="spread" data-page="2">
+
+        <div class="page-left">
+            <img src="img/HistoriaR/memoria.webp" alt="Legado educativo">
+            <div class="img-caption">Quienes sembraron · permanecen en nuestra memoria</div>
+        </div>
+
+        <div class="page-right">
+            <div class="label-sup">Legado y memoria</div>
+            <h2 class="page-title">Permanecen<br>entre nosotros</h2>
+            <div class="gold-rule"></div>
+            <div class="body-text">
+            <p>
+                También hubo personas que hoy ya no se encuentran en este
+                plano terrenal, pero cuya presencia permanece viva entre
+                nosotros.
+            </p>
+            <blockquote class="pull">
+                Su entrega, sus enseñanzas y sus valores siguen habitando
+                cada rincón de nuestra institución. Su legado sigue
+                caminando junto a nosotros.
+            </blockquote>
+            <p>
+                Permanecen en la memoria de quienes aprendieron de ellos,
+                en el respeto de quienes compartieron su camino y en el
+                corazón de cada generación que continúa construyendo sobre
+                aquello que ellos sembraron con tanto amor.
+            </p>
+            </div>
+            <span class="pnum">03</span>
+        </div>
+
+        </div><!-- /spread 2 -->
+
+        <!-- ══════════════════════════════════════
+            SPREAD 3 — Reconocimientos
+        ══════════════════════════════════════ -->
+        <div class="spread" data-page="3">
+
+        <div class="page-left">
+            <img src="img/HistoriaR/Dueños.webp" alt="Reconocimientos Olmedo">
+            <div class="img-caption">25+ años de servicio dedicados a la enseñanza</div>
+        </div>
+
+        <div class="page-right">
+            <div class="label-sup">Reconocimientos</div>
+            <h2 class="page-title">Una institución<br>sólida y reconocida</h2>
+            <div class="gold-rule"></div>
+            <div class="body-text">
+            <p>
+                La Unidad Educativa Olmedo ofrece educación desde Inicial,
+                Educación General Básica y Bachillerato, con el firme
+                compromiso de brindar formación integral a cada estudiante.
+            </p>
+            <p>
+                La Unión Nacional de Educadores reconoció a los directivos
+                <strong class="highlight">MSc. Tito León</strong> y
+                <strong class="highlight">Dr. Rubén León</strong>
+                por más de veinticinco años de servicio.
+            </p>
+            <p>
+                La <strong class="highlight">MSc. Rosalva Bolaños</strong>,
+                coautora en <em>Escribir la educación</em>, abordando
+                bienestar emocional y neuroarte, demuestra que Olmedo
+                aporta activamente al pensamiento pedagógico.
+            </p>
+            </div>
+            <span class="pnum">04</span>
+        </div>
+
+        </div><!-- /spread 3 -->
+
+        <!-- ══════════════════════════════════════
+            SPREAD 4 — Dar alas
+        ══════════════════════════════════════ -->
+        <div class="spread" data-page="4">
+
+        <div class="page-left">
+            <img src="img/HistoriaR/mensaje.webp" alt="Estudiantes Olmedo">
+            <div class="img-caption">Dar alas · descubrir propósito · construir el futuro</div>
+        </div>
+
+        <div class="page-right">
+            <div class="label-sup">Propósito</div>
+            <h2 class="page-title">Dar alas</h2>
+            <div class="gold-rule"></div>
+            <div class="body-text">
+            <p>
+                Si existe una idea que define el propósito de Olmedo,
+                esa idea es <em class="accent">dar alas</em>: mirar a
+                cada estudiante como un ser único, descubrir en cada
+                joven aquello que lo hace especial.
+            </p>
+            <p>
+                Es enseñar con paciencia hasta que la confianza aparezca.
+                Es ayudarlos a encontrar dirección cuando todavía no
+                saben hacia dónde ir. Es enseñarles a creer en su voz,
+                en sus capacidades y en el propósito que están llamados
+                a construir.
+            </p>
+            <blockquote class="pull">
+                "Estoy en deuda con mi padre por vivir,
+                pero con mi maestro por vivir bien."
+                <cite>— Alejandro Magno</cite>
+            </blockquote>
+            </div>
+            <span class="pnum">05</span>
+        </div>
+
+        </div><!-- /spread 4 -->
+
+        <!-- ══════════════════════════════════════
+            SPREAD 5 — Reflexión final
+        ══════════════════════════════════════ -->
+        <div class="spread" data-page="5">
+
+        <div class="page-left">
+            <img src="img/HistoriaR/chicosalegres.webp" alt="Futuro Olmedo">
+            <div class="img-caption">Nuestra historia no ha terminado · sigue construyéndose</div>
+        </div>
+
+        <div class="page-right page-right--final">
+            <div class="final-q-label">Reflexión final</div>
+            <div class="final-q">
+            ¿Qué propósito estás llamado a descubrir…
+            y hasta dónde te llevarán tus alas?
+            </div>
+            <div class="final-orn">✦ ✦ ✦</div>
+            <div class="final-quote">
+            "Mejor que mil días de estudio diligente<br>
+            es un día con un gran maestro."
+            <br><cite>— Proverbio japonés</cite>
+            </div>
+        </div>
+
+        </div><!-- /spread 5 -->
+
+        <!-- Lomo -->
+        <div class="spine"></div>
+
+    </div><!-- /scene -->
+
+    <!-- ── CONTROLES ── -->
+    <div class="book-controls">
+        <button class="nav-btn" id="btnPrev" disabled aria-label="Página anterior">
+        ← anterior
+        </button>
+        <div class="dots" id="dots" role="tablist" aria-label="Ir a página"></div>
+        <button class="nav-btn" id="btnNext" aria-label="Página siguiente">
+        siguiente →
+        </button>
+    </div>
+
+    </section>
+
+
+    <section class="facebook-section">
+        <div class="fb-glow"></div>
+        <div class="fb-glow2"></div>
+    
+        <div class="facebook-header">
+            <h2>Noticias y Publicaciones</h2>
+            <p>Conoce las actividades, logros y momentos destacados de la Unidad Educativa Olmedo.</p>
+        </div>
+    
+        <div class="fb-track-wrapper" id="fbWrapper">
+             <button class="fb-side-btn" id="fbPrev">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            
+            <div class="fb-track" id="fbTrack">
+    
+                <!-- TARJETA 1 -->
+                <div class="fb-card" data-index="0" data-url="https://www.facebook.com/reel/4080940115529307/">
+                    <div class="fb-card-inner">
+                        <div class="fb-card-meta">
+                            <div class="fb-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+                            <div class="fb-card-author">UE</div>
+                            <div class="fb-card-info">
+                                <span class="fb-name">U. E. Olmedo</span>
+                                <span class="fb-date">15 mayo 2026</span>
+                            </div>
+                        </div>
+                        <div class="fb-card-embed">
+                            <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4080940115529307%2F&show_text=true&width=267&t=0"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+                        </div>
+                        <a class="fb-link" href="https://www.facebook.com/reel/4080940115529307/" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                            Ver publicación en Facebook
+                            <svg class="fb-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- TARJETA 2 -->
+                <div class="fb-card" data-index="1" data-url="https://www.facebook.com/permalink.php?story_fbid=pfbid0cg6uAyTmkULXzwJCX1SVXYFi4KFsNeVk5JtQRdnaKkx8gJVDQxVkdMso87bbgEi3l&id=100066223793687">
+                    <div class="fb-card-inner">
+                        <div class="fb-card-meta">
+                            <div class="fb-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+                            <div class="fb-card-author">UE</div>
+                            <div class="fb-card-info">
+                                <span class="fb-name">U. E. Olmedo</span>
+                                <span class="fb-date">8 mayo 2026</span>
+                            </div>
+                        </div>
+                        <div class="fb-card-embed">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0cg6uAyTmkULXzwJCX1SVXYFi4KFsNeVk5JtQRdnaKkx8gJVDQxVkdMso87bbgEi3l%26id%3D100066223793687&show_text=true&width=700"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+                        </div>
+                        <a class="fb-link" href="https://www.facebook.com/permalink.php?story_fbid=pfbid0cg6uAyTmkULXzwJCX1SVXYFi4KFsNeVk5JtQRdnaKkx8gJVDQxVkdMso87bbgEi3l&id=100066223793687" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                            Ver publicación en Facebook
+                            <svg class="fb-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- TARJETA 3 -->
+                <div class="fb-card" data-index="2" data-url="https://www.facebook.com/permalink.php?story_fbid=pfbid0CBApwJFCa6mXcfiVe4AECmJkyUmMFbPbJTAzL5mUXSJNxNxRcPaf1K7JjX2fsF1ol&id=100066223793687">
+                    <div class="fb-card-inner">
+                        <div class="fb-card-meta">
+                            <div class="fb-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+                            <div class="fb-card-author">UE</div>
+                            <div class="fb-card-info">
+                                <span class="fb-name">U. E. Olmedo</span>
+                                <span class="fb-date">28 abr 2026</span>
+                            </div>
+                        </div>
+                        <div class="fb-card-embed">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0CBApwJFCa6mXcfiVe4AECmJkyUmMFbPbJTAzL5mUXSJNxNxRcPaf1K7JjX2fsF1ol%26id%3D100066223793687&show_text=true&width=700"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+                        </div>
+                        <a class="fb-link" href="https://www.facebook.com/permalink.php?story_fbid=pfbid0CBApwJFCa6mXcfiVe4AECmJkyUmMFbPbJTAzL5mUXSJNxNxRcPaf1K7JjX2fsF1ol&id=100066223793687" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                            Ver publicación en Facebook
+                            <svg class="fb-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- TARJETA 4 -->
+                <div class="fb-card" data-index="3" data-url="https://www.facebook.com/permalink.php?story_fbid=pfbid02LXJC1GSrmDXjy4eXeB47pYroAsRNDoLPdScwMzamba2ch184Vpm7VjPDoYcCeFNdl&id=100066223793687">
+                    <div class="fb-card-inner">
+                        <div class="fb-card-meta">
+                            <div class="fb-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+                            <div class="fb-card-author">UE</div>
+                            <div class="fb-card-info">
+                                <span class="fb-name">U. E. Olmedo</span>
+                                <span class="fb-date">13 abr 2026</span>
+                            </div>
+                        </div>
+                        <div class="fb-card-embed">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02LXJC1GSrmDXjy4eXeB47pYroAsRNDoLPdScwMzamba2ch184Vpm7VjPDoYcCeFNdl%26id%3D100066223793687&show_text=true&width=700"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+                        </div>
+                        <a class="fb-link" href="https://www.facebook.com/permalink.php?story_fbid=pfbid02LXJC1GSrmDXjy4eXeB47pYroAsRNDoLPdScwMzamba2ch184Vpm7VjPDoYcCeFNdl&id=100066223793687" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                            Ver publicación en Facebook
+                            <svg class="fb-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- TARJETA 5 -->
+                <div class="fb-card" data-index="4" data-url="https://www.facebook.com/permalink.php?story_fbid=pfbid0dBG8P5ybd3f4ExApimyN3Vpi9CE9GFitgK8SAwYF2hBu34s9tdHGDYsXMmNVCvdvl&id=100066223793687">
+                    <div class="fb-card-inner">
+                        <div class="fb-card-meta">
+                            <div class="fb-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+                            <div class="fb-card-author">UE</div>
+                            <div class="fb-card-info">
+                                <span class="fb-name">U. E. Olmedo</span>
+                                <span class="fb-date">5 abr 2026</span>
+                            </div>
+                        </div>
+                        <div class="fb-card-embed">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0dBG8P5ybd3f4ExApimyN3Vpi9CE9GFitgK8SAwYF2hBu34s9tdHGDYsXMmNVCvdvl%26id%3D100066223793687&show_text=true&width=700"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+                        </div>
+                        <a class="fb-link" href="https://www.facebook.com/permalink.php?story_fbid=pfbid0dBG8P5ybd3f4ExApimyN3Vpi9CE9GFitgK8SAwYF2hBu34s9tdHGDYsXMmNVCvdvl&id=100066223793687" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                            Ver publicación en Facebook
+                            <svg class="fb-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- TARJETA 6 -->
+                <div class="fb-card" data-index="5" data-url="https://www.facebook.com/permalink.php?story_fbid=pfbid02A648W5hsjqPWFvjedpBLchmHwGuZ2q4L1mxrbPRZpKfBvmWadrpsxJGea2nPDU5Ml&id=100066223793687">
+                    <div class="fb-card-inner">
+                        <div class="fb-card-meta">
+                            <div class="fb-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+                            <div class="fb-card-author">UE</div>
+                            <div class="fb-card-info">
+                                <span class="fb-name">U. E. Olmedo</span>
+                                <span class="fb-date">22 mar 2026</span>
+                            </div>
+                        </div>
+                        <div class="fb-card-embed">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02A648W5hsjqPWFvjedpBLchmHwGuZ2q4L1mxrbPRZpKfBvmWadrpsxJGea2nPDU5Ml%26id%3D100066223793687&show_text=true&width=700"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+                        </div>
+                        <a class="fb-link" href="https://www.facebook.com/permalink.php?story_fbid=pfbid02A648W5hsjqPWFvjedpBLchmHwGuZ2q4L1mxrbPRZpKfBvmWadrpsxJGea2nPDU5Ml&id=100066223793687" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                            Ver publicación en Facebook
+                            <svg class="fb-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- TARJETA 7 -->
+                <div class="fb-card" data-index="6" data-url="https://www.facebook.com/permalink.php?story_fbid=pfbid02pPVp8YmZhuYE44T6iY3hK16KbAkQxX2cE3DZjbFo2TXPuaa8vrtSbVQWF4JgGrbel&id=100066223793687">
+                    <div class="fb-card-inner">
+                        <div class="fb-card-meta">
+                            <div class="fb-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+                            <div class="fb-card-author">UE</div>
+                            <div class="fb-card-info">
+                                <span class="fb-name">U. E. Olmedo</span>
+                                <span class="fb-date">10 mar 2026</span>
+                            </div>
+                        </div>
+                        <div class="fb-card-embed">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02pPVp8YmZhuYE44T6iY3hK16KbAkQxX2cE3DZjbFo2TXPuaa8vrtSbVQWF4JgGrbel%26id%3D100066223793687&show_text=true&width=700"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+                        </div>
+                        <a class="fb-link" href="https://www.facebook.com/permalink.php?story_fbid=pfbid02pPVp8YmZhuYE44T6iY3hK16KbAkQxX2cE3DZjbFo2TXPuaa8vrtSbVQWF4JgGrbel&id=100066223793687" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                            Ver publicación en Facebook
+                            <svg class="fb-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- TARJETA 8 -->
+                <div class="fb-card" data-index="7" data-url="https://www.facebook.com/permalink.php?story_fbid=pfbid0VVMePbPo6H17Tf24VeNC11VuHCVwVpZJDt3FdtwdHzt4eZTURGiNXrWeQ3RjdYP5l&id=100066223793687">
+                    <div class="fb-card-inner">
+                        <div class="fb-card-meta">
+                            <div class="fb-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+                            <div class="fb-card-author">UE</div>
+                            <div class="fb-card-info">
+                                <span class="fb-name">U. E. Olmedo</span>
+                                <span class="fb-date">1 mar 2026</span>
+                            </div>
+                        </div>
+                        <div class="fb-card-embed">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0VVMePbPo6H17Tf24VeNC11VuHCVwVpZJDt3FdtwdHzt4eZTURGiNXrWeQ3RjdYP5l%26id%3D100066223793687&show_text=true&width=700"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+                        </div>
+                        <a class="fb-link" href="https://www.facebook.com/permalink.php?story_fbid=pfbid0VVMePbPo6H17Tf24VeNC11VuHCVwVpZJDt3FdtwdHzt4eZTURGiNXrWeQ3RjdYP5l&id=100066223793687" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                            Ver publicación en Facebook
+                            <svg class="fb-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+            <button class="fb-side-btn" id="fbNext">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+    
+        <!-- Controles -->
+        <div class="fb-dots" id="fbDots"></div>
+    
+    </section>
+
+
+    
+    <footer class="footer">
+        <div class="footer-contenido">
+
+            <!-- INFO COLEGIO -->
+            <div class="footer-col">
+                <h3>Unidad Educativa Olmedo</h3>
+                <p>Formando valores, construyendo futuro.</p>
+                <p>Daule, Guayas - Ecuador</p>
+            </div>
+
+            <!-- ENLACES -->
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="Historia.html">Historia</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTACTO -->
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p>📞 +593 999 999 999</p>
+                <p>📧 info@unedol.edu.ec</p>
+            </div>
+            
+            <div class="footer-col mapa">
+                <h3>Ubicación</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.6880069644217!2d-79.99046212579626!3d-1.8724151365460142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d03f2eaf535df%3A0xf0f1affb3029e9f7!2sUnidad%20Educativa%20%22Olmedo%22!5e0!3m2!1ses-419!2sec!4v1774868645019!5m2!1ses-419!2sec"
+                    width="100%" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+
+        <div class="footer-copy">
+            <p>© 2026 Unidad Educativa Olmedo | Todos los derechos reservados</p>
+        </div>
+
+    </footer>
+    <script src="scripts/script_historiaR.js"></script>  
+</body>
+</html>
