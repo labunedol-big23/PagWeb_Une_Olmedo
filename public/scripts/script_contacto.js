@@ -2,39 +2,34 @@
 // scripts/script_contacto.js
 // ============================================================
 
-const MAX_INTENTOS  = 5;
-const STORAGE_KEY   = "intentos_data"; // { restantes, resetEpoch }
+const MAX_INTENTOS = 5;
+const STORAGE_KEY  = "intentos_data"; // { restantes, resetEpoch }
+const API_BASE     = "https://pagweb-une-olmedo.onrender.com";
+
+// ── Despertar servidor en Render (plan gratuito duerme tras 15 min) ──────────
+fetch(`${API_BASE}/geo`).catch(() => {});
 
 
-
-// ── Reset diario a medianoche hora Ecuador (America/Guayaquil) ──────────────
-// Devuelve el epoch (ms) de la próxima medianoche en Guayaquil desde ahora
+// ══════════════════════════════════════════════════════════════
+//  RESET DIARIO — medianoche hora Ecuador (America/Guayaquil)
+// ══════════════════════════════════════════════════════════════
 function proximaMedianocheEC() {
-  const ahora    = new Date();
-  // Obtener fecha actual en zona Guayaquil
-  const partes   = new Intl.DateTimeFormat("en-CA", {
+  const ahora  = new Date();
+  const partes = new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/Guayaquil",
     year: "numeric", month: "2-digit", day: "2-digit"
   }).formatToParts(ahora);
   const year  = partes.find(p => p.type === "year").value;
   const month = partes.find(p => p.type === "month").value;
   const day   = partes.find(p => p.type === "day").value;
-  // Medianoche del día siguiente en Guayaquil
-  const manana = `${year}-${month}-${day}T00:00:00`;
-  // Convertir "medianoche de mañana en Guayaquil" a epoch UTC
-  // Guayaquil es UTC-5 (sin horario de verano)
-  const epochLocal = new Date(manana).getTime() + 24 * 60 * 60 * 1000;
-  // epochLocal es en UTC mal, necesitamos recalcular
-  // Usamos el truco: construimos la fecha en UTC sabiendo que GYE = UTC-5
-  const medianoche = new Date(`${year}-${month}-${day}T05:00:00Z`); // 00:00 GYE = 05:00 UTC
+  // 00:00 Guayaquil = 05:00 UTC (GYE = UTC-5, sin horario de verano)
+  const medianoche = new Date(`${year}-${month}-${day}T05:00:00Z`);
   if (medianoche <= ahora) {
-    // ya pasó la medianoche de hoy → siguiente es mañana
     medianoche.setUTCDate(medianoche.getUTCDate() + 1);
   }
   return medianoche.getTime();
 }
 
-// Lee el estado y aplica reset si ya llegó la medianoche
 function leerEstado() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -43,7 +38,6 @@ function leerEstado() {
     if (!obj || typeof obj.resetEpoch !== "number") {
       return { restantes: MAX_INTENTOS, resetEpoch: proximaMedianocheEC() };
     }
-    // Si ya pasó la medianoche programada → reset
     if (Date.now() >= obj.resetEpoch) {
       const nuevoEstado = { restantes: MAX_INTENTOS, resetEpoch: proximaMedianocheEC() };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(nuevoEstado));
@@ -62,19 +56,21 @@ function guardarEstado(restantes, resetEpoch) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify({ restantes, resetEpoch }));
 }
 
-// ── Filtro de insultos ────────────────────────────────────────────────────────
-// Lista amplia: incluye abreviaciones, leetspeak y variantes comunes
+
+// ══════════════════════════════════════════════════════════════
+//  FILTRO DE INSULTOS
+// ══════════════════════════════════════════════════════════════
 const INSULTOS_RAW = [
-  // Abreviaciones directas (más prioritarias)
+  // Abreviaciones
   "mmv","ctm","ptm","hdp","hp","stfu","wtf",
 
-  //partes del cuerpo 
-  "pene", "p3n3", "pen3", "p.e.n.e", "p_en_e",
-  "penes", "p3n35", "pen35",
-  "vagina", "v4g1n4", "vag1na", "v@g1n@", "v.a.g.i.n.a",
-  "vaginas", "v4g1n45", "vag1n45",
-  "culo", "cu10", "ku1o", "c.u.l.o", "c_ul_o",
-  "culos", "cu105", "ku1o5",
+  // Partes del cuerpo
+  "pene","p3n3","pen3","p.e.n.e","p_en_e",
+  "penes","p3n35","pen35",
+  "vagina","v4g1n4","vag1na","v@g1n@","v.a.g.i.n.a",
+  "vaginas","v4g1n45","vag1n45",
+  "culo","cu10","ku1o","c.u.l.o","c_ul_o",
+  "culos","cu105","ku1o5",
 
   // Español Ecuador / Latino
   "mierda","mierd4","mi3rda","mrd","mrda",
@@ -88,7 +84,7 @@ const INSULTOS_RAW = [
   "cabron","cabr0n","cbr","kbr",
   "verga","v3rga","vrg",
   "concha","cnch",
-  "culo","cul0","kulo",
+  "cul0","kulo",
   "marica","mar1ca","mrk","mrc",
   "marico","mar1co",
   "malparido","malparid0","mlprd",
@@ -123,9 +119,9 @@ const INSULTOS_RAW = [
   "pelotudo","plt",
   "tarado","trd",
   "bobo","b0b0",
-  
-  // Inglés ofensivo básico
-  "fuck","fck","fuk","fck","fvck",
+
+  // Inglés ofensivo
+  "fuck","fck","fuk","fvck",
   "shit","sh1t","sht",
   "bitch","b1tch","btch",
   "asshole","a55hole","ahole",
@@ -140,7 +136,6 @@ const INSULTOS_RAW = [
   "idiot","moron","stupid","dumbass","loser"
 ];
 
-// Normaliza: minúsculas, sin tildes, reemplaza leetspeak, quita no-letras
 function normalizar(txt) {
   return txt
     .toLowerCase()
@@ -156,7 +151,6 @@ function normalizar(txt) {
 
 const INSULTOS_NORM = INSULTOS_RAW.map(w => normalizar(w));
 
-// Devuelve la palabra original que disparó el filtro, o null si está limpio
 function detectarInsulto(texto) {
   const norm = normalizar(texto);
   for (let i = 0; i < INSULTOS_NORM.length; i++) {
@@ -165,14 +159,19 @@ function detectarInsulto(texto) {
   return null;
 }
 
-// ── Helpers UI ───────────────────────────────────────────────
+
+// ══════════════════════════════════════════════════════════════
+//  HELPERS UI
+// ══════════════════════════════════════════════════════════════
 function renderDots(n) {
   document.querySelectorAll("#dots .dot").forEach((d, i) => d.classList.toggle("used", i >= n));
 }
+
 function setStatus(msg, color = "#aaa") {
   const el = document.getElementById("statusMsg");
   if (el) { el.textContent = msg; el.style.color = color; }
 }
+
 function showNotif(title, body) {
   const notif = document.getElementById("notif");
   const t     = document.getElementById("notifTitle");
@@ -184,7 +183,10 @@ function showNotif(title, body) {
   setTimeout(() => notif.classList.remove("show"), 4000);
 }
 
-// ── Reloj ────────────────────────────────────────────────────
+
+// ══════════════════════════════════════════════════════════════
+//  RELOJ
+// ══════════════════════════════════════════════════════════════
 function updateClock() {
   const el = document.getElementById("clockTime");
   if (el) el.textContent = new Date().toLocaleTimeString("es-EC", { hour: "2-digit", minute: "2-digit" });
@@ -192,7 +194,10 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// ── Formatear coord ──────────────────────────────────────────
+
+// ══════════════════════════════════════════════════════════════
+//  GEO
+// ══════════════════════════════════════════════════════════════
 function fmtCoord(val) {
   if (val === null || val === undefined) return null;
   const n = typeof val === "string" ? parseFloat(val) : val;
@@ -200,55 +205,55 @@ function fmtCoord(val) {
   return n.toFixed(6);
 }
 
-// ── GPS del navegador ────────────────────────────────────────
+// GPS del navegador
 function pedirGPS() {
   return new Promise((resolve) => {
     if (!navigator.geolocation) { resolve(null); return; }
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        resolve({
-          latitud:  pos.coords.latitude.toFixed(6),
-          longitud: pos.coords.longitude.toFixed(6),
-          precision: pos.coords.accuracy
-        });
-      },
+      (pos) => resolve({
+        latitud:  pos.coords.latitude.toFixed(6),
+        longitud: pos.coords.longitude.toFixed(6),
+        precision: pos.coords.accuracy
+      }),
       () => resolve(null),
       { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
     );
   });
 }
 
-// ── ipapi.co desde el navegador ──────────────────────────────
-function pedirIpapi() {
-  return fetch("https://ipapi.co/json/")
+// /geo del servidor (3 APIs con fallback)
+function pedirGeoServidor() {
+  return fetch(`${API_BASE}/geo`)
     .then(r => r.json())
     .catch(() => null);
 }
 
-// ── Geo principal ────────────────────────────────────────────
+// Geo principal: combina GPS + servidor
 async function obtenerGeo() {
-  const [gps, ipapi] = await Promise.all([pedirGPS(), pedirIpapi()]);
+  const [gps, geoServidor] = await Promise.all([pedirGPS(), pedirGeoServidor()]);
 
-  const ip     = ipapi?.ip           ?? "no disponible";
-  const ciudad = ipapi?.city         ?? "";
-  const region = ipapi?.region       ?? "";
-  const pais   = ipapi?.country_name ?? "";
+  const ip     = geoServidor?.ip     ?? "no disponible";
+  const ciudad = geoServidor?.ciudad ?? "";
+  const region = geoServidor?.region ?? "";
+  const pais   = geoServidor?.pais   ?? "";
 
   if (gps) {
     return { ip, ciudad, region, pais,
-             latitud: gps.latitud, longitud: gps.longitud,
+             latitud:  gps.latitud,
+             longitud: gps.longitud,
              fuenteGeo: "GPS/navegador" };
   }
 
   return { ip, ciudad, region, pais,
-           latitud:  fmtCoord(ipapi?.latitude),
-           longitud: fmtCoord(ipapi?.longitude),
-           fuenteGeo: "IP/ipapi.co" };
+           latitud:  fmtCoord(geoServidor?.latitud),
+           longitud: fmtCoord(geoServidor?.longitud),
+           fuenteGeo: "IP/servidor" };
 }
 
 
-
-// ── Init ─────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════════════
 document.addEventListener("DOMContentLoaded", () => {
   let estado = leerEstado();
   renderDots(estado.restantes);
@@ -259,13 +264,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!sendBtn) return;
 
+  // Mostrar aviso si ya no hay intentos al cargar
   if (estado.restantes <= 0) {
     sendBtn.disabled = true;
-    // Mostrar cuándo se restauran
-    const resetDate = new Date(estado.resetEpoch);
-    const horaReset = resetDate.toLocaleTimeString("es-EC", {
-      timeZone: "America/Guayaquil",
-      hour: "2-digit", minute: "2-digit"
+    const horaReset = new Date(estado.resetEpoch).toLocaleTimeString("es-EC", {
+      timeZone: "America/Guayaquil", hour: "2-digit", minute: "2-digit"
     });
     setStatus(`🚫 Sin intentos. Se restauran a las ${horaReset} (hora Ecuador).`, "#ef4444");
   }
@@ -277,25 +280,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!nombre)  { setStatus("⚠ Por favor escribe tu nombre.", "#f97316"); return; }
     if (!mensaje) { setStatus("⚠ El mensaje no puede estar vacío.", "#f97316"); return; }
 
-    // ── Verificar estado actualizado (por si ya pasó la medianoche mientras estaba abierta la página)
+    // Re-leer estado (por si pasó medianoche con la página abierta)
     estado = leerEstado();
     renderDots(estado.restantes);
 
     if (estado.restantes <= 0) {
       sendBtn.disabled = true;
-      const resetDate = new Date(estado.resetEpoch);
-      const horaReset = resetDate.toLocaleTimeString("es-EC", {
-        timeZone: "America/Guayaquil",
-        hour: "2-digit", minute: "2-digit"
+      const horaReset = new Date(estado.resetEpoch).toLocaleTimeString("es-EC", {
+        timeZone: "America/Guayaquil", hour: "2-digit", minute: "2-digit"
       });
       setStatus(`🚫 Sin intentos. Se restauran a las ${horaReset} (hora Ecuador).`, "#ef4444");
       return;
     }
 
-    // ── Filtro de insultos ──────────────────────────────────
-    const insultoNombre  = detectarInsulto(nombre);
-    const insultoMensaje = detectarInsulto(mensaje);
-    if (insultoNombre || insultoMensaje) {
+    // Filtro de insultos
+    if (detectarInsulto(nombre) || detectarInsulto(mensaje)) {
       setStatus("⛔ Tu mensaje contiene lenguaje inapropiado. Por favor, sé respetuoso.", "#ef4444");
       return;
     }
@@ -308,7 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setStatus("📨 Enviando mensaje…", "#60a5fa");
 
-      const resp = await fetch("/enviar", {
+      const resp = await fetch(`${API_BASE}/enviar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -336,19 +335,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (estado.restantes <= 0) {
           sendBtn.disabled = true;
-          const resetDate = new Date(estado.resetEpoch);
-          const horaReset = resetDate.toLocaleTimeString("es-EC", {
-            timeZone: "America/Guayaquil",
-            hour: "2-digit", minute: "2-digit"
+          const horaReset = new Date(estado.resetEpoch).toLocaleTimeString("es-EC", {
+            timeZone: "America/Guayaquil", hour: "2-digit", minute: "2-digit"
           });
           setStatus(`🚫 Sin intentos. Se restauran a las ${horaReset} (hora Ecuador).`, "#ef4444");
         } else {
           sendBtn.disabled = false;
         }
+
       } else {
         setStatus("❌ Error al enviar. Intenta de nuevo.", "#ef4444");
         sendBtn.disabled = false;
       }
+
     } catch (err) {
       console.error("[contacto] Error:", err);
       setStatus("❌ Error de conexión.", "#ef4444");

@@ -22,9 +22,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
-});
 
 // ── Reset de intentos ────────────────────────────────────────
 app.get("/admin/reset", (req, res) => {
