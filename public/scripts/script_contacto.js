@@ -322,7 +322,17 @@ document.addEventListener("DOMContentLoaded", () => {
         })
       });
 
-      const result = await resp.json();
+      // Leer como texto primero para detectar respuestas HTML inesperadas
+      const texto = await resp.text();
+      let result;
+      try {
+        result = JSON.parse(texto);
+      } catch {
+        console.error("[contacto] Respuesta no es JSON:", texto.slice(0, 300));
+        setStatus("❌ El servidor no respondió correctamente. Intenta en unos segundos.", "#ef4444");
+        sendBtn.disabled = false;
+        return;
+      }
 
       if (result.ok) {
         estado.restantes--;
